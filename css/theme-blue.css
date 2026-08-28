@@ -1,0 +1,20 @@
+/* ==========================================================================
+   IR Systems — blue/white/black theme
+   Loaded after tokens.css, before style.css. Overrides only the colour
+   tokens — every size, spacing value and font stays exactly as defined in
+   tokens.css, so this is the same shell with a different palette dropped in.
+   Nothing else on the site needs to change: --logo-ink and --logo-tick are
+   already defined in tokens.css in terms of --ink and --infra, so the inline
+   monogram, the heat strip and every component built on the tokens repaint
+   themselves automatically.
+   ========================================================================== */
+
+:root {
+  --paper: #FFFFFF;
+  --ink: #10141A;
+  --deep: #0A0C0F;
+  --steel: #6A7180;   /* 4.9:1 on paper */
+  --line: #DDE1E8;
+  --infra: #1642B5;        /* 8.5:1 on paper */
+  --infra-on-deep: #5B8DEF; /* 6.1:1 on deep */
+}

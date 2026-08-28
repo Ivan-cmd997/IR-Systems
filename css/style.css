@@ -1,0 +1,979 @@
+/* ==========================================================================
+   IR Systems — layout and components
+   Every value comes from tokens.css. If a number appears here that is not a
+   token, it is a ratio or a count, never a colour or a type size.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Reset
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--ff-text);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Visible focus on every interactive element. */
+:focus-visible {
+  outline: 2px solid var(--infra);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.is-deep :focus-visible {
+  outline-color: var(--infra-on-deep);
+}
+
+/* Skip link, revealed on focus. */
+.skip {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-2);
+  z-index: 10;
+  padding: var(--s-2) var(--s-3);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  transform: translateY(-200%);
+}
+
+.skip:focus {
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Container and grid
+   12 columns, 1240px of content, 24px gutter.
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--grid-max) + var(--pad) * 2);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.section {
+  padding-block: var(--section-y);
+  border-top: var(--hairline);
+}
+
+.section--flush {
+  border-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Type
+   -------------------------------------------------------------------------- */
+
+.label {
+  margin: 0;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--infra);
+}
+
+.is-deep .label {
+  color: var(--infra-on-deep);
+}
+
+.label--steel {
+  color: var(--steel);
+}
+
+.display {
+  font-family: var(--ff-display);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+}
+
+.h2 {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  text-wrap: balance;
+}
+
+.h3 {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: var(--lh-h3);
+}
+
+.body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+}
+
+.muted {
+  color: var(--steel);
+}
+
+/* Paragraphs never run past 68 characters. */
+.measure {
+  max-width: 62ch;
+}
+
+.mono {
+  font-family: var(--ff-mono);
+  font-weight: 500;
+  font-size: var(--fs-small);
+}
+
+/* --------------------------------------------------------------------------
+   4. Section heading block
+   -------------------------------------------------------------------------- */
+
+.head {
+  display: grid;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+/* --------------------------------------------------------------------------
+   5. Links and buttons
+   -------------------------------------------------------------------------- */
+
+.link {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--s-1);
+  transition: color 120ms linear, border-color 120ms linear;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--infra);
+  border-bottom-color: var(--infra);
+}
+
+.is-deep .link {
+  color: #fff;
+  border-bottom-color: var(--steel);
+}
+
+.is-deep .link:hover,
+.is-deep .link:focus-visible {
+  color: var(--infra-on-deep);
+  border-bottom-color: var(--infra-on-deep);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-5);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  transition: background-color 120ms linear, color 120ms linear,
+    border-color 120ms linear;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--infra);
+  border-color: var(--infra);
+  color: var(--paper);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.is-deep .btn {
+  background: #fff;
+  border-color: #fff;
+  color: var(--deep);
+}
+
+.is-deep .btn:hover,
+.is-deep .btn:focus-visible {
+  background: var(--infra-on-deep);
+  border-color: var(--infra-on-deep);
+  color: #fff;
+}
+
+.is-deep .btn--ghost {
+  background: transparent;
+  color: #fff;
+}
+
+.is-deep .btn--ghost:hover,
+.is-deep .btn--ghost:focus-visible {
+  background: #fff;
+  border-color: #fff;
+  color: var(--deep);
+}
+
+/* --------------------------------------------------------------------------
+   6. 01 · Header
+   -------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: var(--hairline);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: var(--s-6);
+}
+
+.header__logo {
+  display: block;
+  flex: none;
+}
+
+.header__logo svg {
+  height: 22px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.nav a {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--steel);
+  padding-block: var(--s-2);
+  transition: color 120ms linear;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--ink);
+}
+
+.nav a.is-accent {
+  color: var(--infra);
+}
+
+/* Narrow screens tighten the gap rather than the type: 12px is the smallest
+   size in the scale and nothing on the site goes below it. */
+@media (max-width: 639px) {
+  .nav {
+    gap: var(--s-3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. 02 · Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  padding-block: var(--s-7) var(--section-y);
+}
+
+.hero__label {
+  margin-bottom: var(--s-4);
+}
+
+.hero__title {
+  max-width: 16ch;
+}
+
+/* The heat strip. The one gradient on the site, and the one animation.
+   Drawn in full by default so that reduced-motion users, and anything that
+   does not run the animation, still see the finished state. */
+.hero__heat {
+  height: 3px;
+  margin-block: var(--s-5);
+  background: linear-gradient(
+    90deg,
+    var(--paper) 0%,
+    var(--ink) 55%,
+    var(--infra) 100%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__heat {
+    animation: heat 900ms ease-out both;
+  }
+}
+
+@keyframes heat {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hero__sub {
+  margin-bottom: var(--s-5);
+}
+
+/* --------------------------------------------------------------------------
+   8. 03 · Services — three columns
+   -------------------------------------------------------------------------- */
+
+.cols {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.col {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s-4);
+}
+
+/* --------------------------------------------------------------------------
+   9. 04 · Process — a numbered sequence, the only numbers on the site
+   -------------------------------------------------------------------------- */
+
+.steps {
+  border-top: var(--hairline);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-2) var(--gutter);
+  padding-block: var(--s-4);
+  border-bottom: var(--hairline);
+}
+
+@media (min-width: 640px) {
+  .step {
+    grid-template-columns: var(--s-6) minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--gutter);
+    align-items: start;
+    padding-block: var(--s-5);
+  }
+}
+
+.step__num {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ls-label);
+  color: var(--steel);
+}
+
+/* --------------------------------------------------------------------------
+   10. 05 · Work
+   -------------------------------------------------------------------------- */
+
+.work {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.work__shot {
+  aspect-ratio: 16 / 10;
+  background: var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--s-3);
+}
+
+.work__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.work__shot svg {
+  width: 32px;
+  height: auto;
+  opacity: 0.45;
+}
+
+.work__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   11. 06 · About
+   -------------------------------------------------------------------------- */
+
+.about {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .about {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--s-6);
+  }
+}
+
+/* No photograph yet, so the monogram stands in its place. */
+.about__figure {
+  aspect-ratio: 1;
+  max-width: 320px;
+  border: var(--hairline);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  padding: var(--s-5);
+}
+
+.about__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   12. 07 · Contact — the dark section
+   -------------------------------------------------------------------------- */
+
+.is-deep {
+  background: var(--deep);
+  color: #fff;
+  --logo-ink: #fff;
+  --logo-tick: var(--infra-on-deep);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+/* --------------------------------------------------------------------------
+   13. Layer divider — showcase above, working guideline below
+   -------------------------------------------------------------------------- */
+
+.divider {
+  border-top: 3px solid var(--ink);
+  padding-block: var(--s-6);
+}
+
+.divider__inner {
+  display: grid;
+  gap: var(--s-3);
+}
+
+/* --------------------------------------------------------------------------
+   14. 09 · Palette
+   -------------------------------------------------------------------------- */
+
+.swatches {
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.swatch {
+  border: var(--hairline);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 96px auto;
+}
+
+.swatch__chip {
+  width: 100%;
+  height: 100%;
+}
+
+.swatch__body {
+  padding: var(--s-3);
+  display: grid;
+  gap: var(--s-1);
+}
+
+.swatch__name {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  width: 100%;
+  margin-top: var(--s-2);
+  padding: var(--s-2);
+  border: var(--hairline);
+  border-radius: var(--radius);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  color: var(--steel);
+  transition: color 120ms linear, border-color 120ms linear;
+}
+
+.copy:hover,
+.copy:focus-visible {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.copy__label {
+  flex: none;
+}
+
+/* Set by main.js for a moment after a successful copy. */
+.copy__label.copy__state {
+  color: var(--infra);
+}
+
+/* --------------------------------------------------------------------------
+   15. 10 · Typography specimens
+   -------------------------------------------------------------------------- */
+
+.specimen {
+  border-top: var(--hairline);
+  padding-block: var(--s-5);
+  display: grid;
+  gap: var(--s-3) var(--gutter);
+}
+
+@media (min-width: 1024px) {
+  .specimen {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  }
+}
+
+.specimen__meta {
+  display: grid;
+  gap: var(--s-1);
+  align-content: start;
+}
+
+.specimen__sample {
+  overflow-x: auto;
+}
+
+.spec-display {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+.spec-h2 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+}
+
+.spec-h3 {
+  font-family: var(--ff-text);
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+}
+
+.spec-body {
+  font-family: var(--ff-text);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.spec-small {
+  font-family: var(--ff-text);
+  font-weight: 400;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+}
+
+.spec-label {
+  font-family: var(--ff-mono);
+  font-weight: 500;
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   16. 08 · Logo guideline
+   -------------------------------------------------------------------------- */
+
+.logo-grid {
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.logo-cell {
+  border: var(--hairline);
+  border-radius: var(--radius);
+  padding: var(--s-5);
+  display: grid;
+  gap: var(--s-4);
+  align-content: space-between;
+}
+
+.logo-cell--deep {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.logo-cell--ink {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.logo-cell img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+/* Clear space: the guard is the width of the monogram's I on every side. */
+.clearspace {
+  position: relative;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: var(--s-5);
+  display: grid;
+  place-items: center;
+}
+
+.clearspace__inner {
+  outline: 1px dashed var(--infra);
+  outline-offset: 0;
+}
+
+.clearspace img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.rules {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .rules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rules__list li {
+  padding-block: var(--s-2);
+  border-bottom: var(--hairline);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--steel);
+}
+
+.rules__list li::before {
+  content: '—';
+  margin-right: var(--s-2);
+}
+
+.rules__list.rules--no li::before {
+  content: '\00D7';
+  color: var(--infra);
+}
+
+/* --------------------------------------------------------------------------
+   17. 11 · Grid and spacing guideline
+   -------------------------------------------------------------------------- */
+
+.grid-demo {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gutter);
+  border: var(--hairline);
+  border-radius: var(--radius);
+  padding: var(--s-3);
+}
+
+.grid-demo span {
+  height: var(--s-6);
+  background: var(--line);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 639px) {
+  .grid-demo span:nth-child(n + 7) {
+    display: none;
+  }
+
+  .grid-demo {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.scale {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+}
+
+.scale__row {
+  display: grid;
+  grid-template-columns: var(--s-6) 1fr;
+  gap: var(--s-3);
+  align-items: center;
+}
+
+.scale__bar {
+  height: var(--s-3);
+  background: var(--ink);
+  border-radius: var(--radius);
+}
+
+/* --------------------------------------------------------------------------
+   18. 12 · Tone of voice
+   -------------------------------------------------------------------------- */
+
+.tone {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .tone {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tone__col {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s-4);
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.tone__col--no {
+  border-top-color: var(--infra);
+}
+
+/* --------------------------------------------------------------------------
+   19. 13 · Downloads
+   -------------------------------------------------------------------------- */
+
+.downloads {
+  display: grid;
+  gap: 0;
+  border-top: var(--hairline);
+}
+
+.download {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  padding-block: var(--s-3);
+  border-bottom: var(--hairline);
+  transition: color 120ms linear;
+}
+
+.download:hover,
+.download:focus-visible {
+  color: var(--infra);
+}
+
+.download__name {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   20. 14 · Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  border-top: var(--hairline);
+  padding-block: var(--s-6);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.footer svg {
+  height: 20px;
+  width: auto;
+}
+
+/* --------------------------------------------------------------------------
+   22. Reveal on scroll
+   Used by index.html (the public page): elements marked .reveal start hidden
+   and settle into place when they cross into view, staggered by main.js via
+   --reveal-delay. Has no effect on guideline.html, which contains no .reveal
+   elements.
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms cubic-bezier(0.16, 0.8, 0.24, 1),
+    transform 700ms cubic-bezier(0.16, 0.8, 0.24, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

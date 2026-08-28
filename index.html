@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>IR Systems — сайты, ИИ-агенты и SEO для малого бизнеса</title>
+<meta name="description" content="Разработка сайтов, внедрение ИИ-агентов в процессы и SEO для малого бизнеса. Работаю один: вы говорите с тем, кто пишет код. Первый разговор бесплатно.">
+
+<!-- Публичная страница, основной вход для клиентов. Полная версия с
+     гайдлайном по идентике — в guideline.html, для внутреннего использования.
+     ВАЖНО: подставить рабочий домен, когда он будет куплен — здесь,
+     в og:url и в JSON-LD. -->
+<link rel="canonical" href="https://irsystems.ru/">
+
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="IR Systems">
+<meta property="og:url" content="https://irsystems.ru/">
+<meta property="og:title" content="IR Systems — работает там, где не видно">
+<meta property="og:description" content="Сайты, ИИ-агенты и SEO для малого бизнеса. Заявки разбираются ночью, отчёты собираются сами, поиск приводит людей без бюджета на рекламу.">
+<meta property="og:image" content="https://irsystems.ru/img/og-blue.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IR Systems. Работает там, где не видно.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IR Systems — работает там, где не видно">
+<meta name="twitter:description" content="Сайты, ИИ-агенты и SEO для малого бизнеса. Разработка, автоматизация, поиск.">
+<meta name="twitter:image" content="https://irsystems.ru/img/og-blue.png">
+
+<link rel="icon" href="assets/favicon-blue.svg" type="image/svg+xml">
+
+<link rel="preload" href="fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jbmono-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://irsystems.ru/#business",
+  "name": "IR Systems",
+  "slogan": "Работает там, где не видно",
+  "url": "https://irsystems.ru/",
+  "image": "https://irsystems.ru/img/og-blue.png",
+  "logo": "https://irsystems.ru/assets/favicon-blue.svg",
+  "description": "Разработка сайтов, внедрение ИИ-агентов в бизнес-процессы и поисковая оптимизация для малого бизнеса.",
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://irsystems.ru/#ivan",
+    "name": "Иван Романов",
+    "jobTitle": "Разработчик",
+    "worksFor": { "@id": "https://irsystems.ru/#business" }
+  },
+  "employee": { "@id": "https://irsystems.ru/#ivan" },
+  "areaServed": [
+    { "@type": "Country", "name": "Россия" },
+    { "@type": "Country", "name": "Казахстан" },
+    { "@type": "Country", "name": "Беларусь" },
+    { "@type": "Country", "name": "Армения" }
+  ],
+  "knowsLanguage": "ru",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Разработка сайтов",
+        "description": "Разработка с нуля: от структуры и текстов до вёрстки и запуска. Без конструкторов и шаблонов."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Внедрение ИИ-агентов",
+        "description": "Агенты для обработки заявок, ответов клиентам, разбора документов и сводок по продажам."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Поисковая оптимизация",
+        "description": "Техническая база, семантика и тексты ради стабильного потока людей из поиска."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">К содержанию</a>
+
+<!-- Монограмма один раз, дальше через <use>. Цвета берутся из переменных,
+     поэтому здесь она сама перекрашивается в синий акцент вместо
+     инфракрасного — тот же символ, что и в служебном guideline.html. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="ir-monogram" viewBox="10.03 0 120.56 100">
+    <path d="M10.03 100.00V0.03H32.94V100.00Z" fill="var(--logo-ink)"/>
+    <path d="M47.32 100.00V0.03H88.59Q95.68 0.03 102.64 1.38Q109.60 2.74 115.40 6.24Q121.19 9.75 124.62 16.14Q128.05 22.54 128.05 32.60Q128.05 39.46 125.85 45.21Q123.64 50.96 119.18 55.20Q114.72 59.44 107.88 61.92L130.59 100.00H104.63L85.28 65.51H70.23V100.00ZM70.23 45.31H87.91Q91.95 45.31 95.13 44.58Q98.31 43.84 100.58 42.33Q102.85 40.82 104.07 38.43Q105.28 36.05 105.31 32.63Q105.34 28.02 103.19 25.58Q101.05 23.14 97.34 22.19Q93.64 21.24 88.79 21.24H70.23Z" fill="var(--logo-ink)"/>
+    <rect x="38.56" y="20.00" width="3.12" height="60.00" fill="var(--logo-tick)"/>
+  </symbol>
+</svg>
+
+
+<!-- ====================================================================
+     01 · Шапка
+     ==================================================================== -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" href="#top" aria-label="IR Systems, в начало страницы">
+      <svg viewBox="10.03 0 120.56 100" width="27" height="22" role="img" aria-hidden="true">
+        <use href="#ir-monogram"></use>
+      </svg>
+    </a>
+    <nav class="nav" aria-label="Разделы страницы">
+      <a href="#services">Направления</a>
+      <a href="#work">Работы</a>
+      <a class="is-accent" href="#contact">Контакт</a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="main">
+
+<!-- ====================================================================
+     02 · Герой
+     ==================================================================== -->
+<section class="hero" id="top">
+  <div class="container" data-reveal-group>
+    <p class="label hero__label reveal">Сайты · ИИ-агенты · SEO</p>
+    <h1 class="display hero__title reveal">Работает там,<br>где не видно</h1>
+
+    <!-- Тепловая полоса не входит в стагтер: она играет сама по себе,
+         как и на основной версии сайта. -->
+    <div class="hero__heat" role="presentation"></div>
+
+    <p class="body measure hero__sub reveal">
+      Собираю сайты и встраиваю ИИ-агентов в процессы малого бизнеса. Заявки
+      разбираются ночью, отчёты собираются сами, поиск приводит людей без
+      бюджета на рекламу.
+    </p>
+    <a class="btn reveal" href="#contact">Обсудить задачу</a>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     03 · Направления
+     ==================================================================== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="head reveal" data-reveal-group>
+      <h2 class="label">Что я делаю</h2>
+    </div>
+
+    <div class="cols" data-reveal-group>
+      <article class="col reveal">
+        <h3 class="h3">Сайты</h3>
+        <p class="small muted">
+          Разработка с нуля: от структуры и текстов до вёрстки и запуска. Без
+          конструкторов и шаблонов — код, который потом можно поддерживать.
+        </p>
+      </article>
+
+      <article class="col reveal">
+        <h3 class="h3">ИИ-агенты</h3>
+        <p class="small muted">
+          Встраиваю агентов туда, где у вас сейчас руками: обработка заявок,
+          ответы клиентам, разбор документов, сводки по продажам. Агент берёт
+          рутину, человек остаётся на решениях.
+        </p>
+      </article>
+
+      <article class="col reveal">
+        <h3 class="h3">SEO</h3>
+        <p class="small muted">
+          Техническая база, семантика, тексты. Цель одна — стабильный поток
+          людей из поиска, за который не надо платить каждый месяц.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     04 · Как я работаю. Единственное место на сайте с номерами.
+     ==================================================================== -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="head reveal" data-reveal-group>
+      <p class="label">Процесс</p>
+      <h2 class="h2">Как я работаю</h2>
+    </div>
+
+    <ol class="steps" data-reveal-group>
+      <li class="step reveal">
+        <span class="step__num">01</span>
+        <h3 class="h3">Разбираемся</h3>
+        <p class="small muted measure">
+          Смотрю, как у вас всё устроено сейчас. Не что хочется
+          автоматизировать, а где реально уходит время.
+        </p>
+      </li>
+
+      <li class="step reveal">
+        <span class="step__num">02</span>
+        <h3 class="h3">Считаем</h3>
+        <p class="small muted measure">
+          Показываю, что можно сделать, сколько это займёт и что вы с этого
+          получите. Если выгоды нет — говорю прямо.
+        </p>
+      </li>
+
+      <li class="step reveal">
+        <span class="step__num">03</span>
+        <h3 class="h3">Собираю</h3>
+        <p class="small muted measure">
+          Делаю и показываю по частям. Вы видите промежуточный результат, а не
+          финальный сюрприз.
+        </p>
+      </li>
+
+      <li class="step reveal">
+        <span class="step__num">04</span>
+        <h3 class="h3">Передаю</h3>
+        <p class="small muted measure">
+          Запускаем, я показываю, как этим пользоваться. Дальше вы работаете
+          сами, я на связи.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     05 · Работы
+     Реальные проекты: SHI Beauty, Анастасия Бициган, кафе «Белка». Скриншоты
+     сняты с живых сайтов headless-браузером в 16:10 и лежат в /img.
+     ==================================================================== -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="head reveal" data-reveal-group>
+      <p class="label">Работы</p>
+      <h2 class="h2">Три сайта из недавних</h2>
+    </div>
+
+    <div class="cols" data-reveal-group>
+      <article class="work reveal">
+        <div class="work__shot">
+          <img src="img/work-1.webp" width="800" height="500" loading="lazy" decoding="async" alt="Скриншот сайта SHI Beauty">
+        </div>
+        <div class="work__meta">
+          <h3 class="h3">SHI Beauty</h3>
+          <p class="label label--steel">Салон красоты</p>
+        </div>
+        <p class="small muted">
+          Каталог услуг, цены и запись онлайн вместо разрозненных постов в соцсетях.
+        </p>
+        <a class="link" href="https://shibeauty.ru/" target="_blank" rel="noopener">Смотреть сайт</a>
+      </article>
+
+      <article class="work reveal">
+        <div class="work__shot">
+          <img src="img/work-2.webp" width="800" height="500" loading="lazy" decoding="async" alt="Скриншот сайта Анастасии Бициган">
+        </div>
+        <div class="work__meta">
+          <h3 class="h3">Анастасия Бициган</h3>
+          <p class="label label--steel">Юридические услуги</p>
+        </div>
+        <p class="small muted">
+          Сайт с направлениями работы и контактами вместо визитки в мессенджере.
+        </p>
+        <a class="link" href="https://ivan-cmd997.github.io/Anastasia/" target="_blank" rel="noopener">Смотреть сайт</a>
+      </article>
+
+      <article class="work reveal">
+        <div class="work__shot">
+          <img src="img/work-3.webp" width="800" height="500" loading="lazy" decoding="async" alt="Скриншот сайта кафе «Белка»">
+        </div>
+        <div class="work__meta">
+          <h3 class="h3">Кафе «Белка»</h3>
+          <p class="label label--steel">Кафе</p>
+        </div>
+        <p class="small muted">
+          Меню с фото и составом блюд вместо бумажных карточек на столах.
+        </p>
+        <a class="link" href="https://ivan-cmd997.github.io/Belka/" target="_blank" rel="noopener">Смотреть сайт</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     06 · Кто за этим стоит
+     Фотографии пока нет, поэтому на её месте крупная монограмма. Когда фото
+     появится: положить в /img как about.webp, раскомментировать <img>,
+     удалить <svg>.
+     ==================================================================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="head reveal" data-reveal-group>
+      <p class="label">Обо мне</p>
+    </div>
+
+    <div class="about" data-reveal-group>
+      <figure class="about__figure reveal">
+        <!-- <img src="img/about.webp" width="640" height="640" loading="lazy" decoding="async" alt="Иван Романов"> -->
+        <svg viewBox="10.03 0 120.56 100" width="180" height="149" role="img" aria-label="Монограмма IR">
+          <use href="#ir-monogram"></use>
+        </svg>
+      </figure>
+
+      <div class="reveal">
+        <h2 class="h2">Иван Романов</h2>
+        <p class="body measure" style="margin-top: var(--s-4)">
+          Работаю один, поэтому беру немного проектов и довожу каждый. Со мной
+          вы говорите с тем, кто пишет код, а не с менеджером, который
+          передаст.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     07 · Контакт
+     ==================================================================== -->
+<section class="section section--flush is-deep" id="contact">
+  <div class="container" data-reveal-group>
+    <p class="label reveal">Контакт</p>
+    <h2 class="h2 measure reveal" style="margin-top: var(--s-4)">
+      Расскажите, что нужно автоматизировать
+    </h2>
+    <p class="body measure reveal" style="margin-top: var(--s-4)">
+      Отвечаю в течение дня. Первый разговор — бесплатно, и после него у вас в
+      любом случае будет понимание, что делать.
+    </p>
+
+    <div class="contact__actions reveal">
+      <a class="btn" href="https://t.me/IRsystems_q" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ====================================================================
+     14 · Подвал
+     ==================================================================== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <svg viewBox="10.03 0 120.56 100" width="24" height="20" role="img" aria-label="IR Systems">
+      <use href="#ir-monogram"></use>
+    </svg>
+    <p class="label label--steel">Работает там, где не видно</p>
+    <p class="small muted">© 2026 IR Systems · Иван Романов</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
