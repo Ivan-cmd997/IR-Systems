@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://irsystems.ru/sitemap.xml
+Sitemap: https://ir-systems.ru/sitemap.xml
